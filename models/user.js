@@ -1,8 +1,8 @@
 //load in the required packages
 const mongoose = require("mongoose");
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const { jwtSecret } = require('../config/keys');
 
 //create mongoose schema
@@ -74,7 +74,7 @@ userSchema.methods.generateAuthToken = async function () {
 
 userSchema.statics.findByCredentials = async (email, password) => {
     // Search for a user by email and password.
-    const user = await User.findOne({ email} )
+    const user = await User.findOne({ email })
     if (!user) {
         throw new Error({ error: 'Invalid login credentials' })
     }
@@ -85,4 +85,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
+
+module.exports = User
