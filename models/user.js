@@ -1,6 +1,5 @@
 //load in the required packages
 const mongoose = require("mongoose");
-const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { jwtSecret } = require('../config/keys');
@@ -19,11 +18,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        validate: value => {
-            if (!validator.isEmail(value)) {
-                throw new Error({ error: 'Invalid Email address' })
-            }
-        }
     },
     password: {
         type: String,
