@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require('dotenv').config();
 const { mongoConnect } = require("./config/keys");
+const usersRouter = require("./routers/user");
 
 const server = express();
 
@@ -14,11 +15,15 @@ mongoose
     .connect(mongoConnect, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
+        useCreateIndex: true,
     })
     .then(() => console.log('DB Connected!'))
     .catch(err => {
         console.log(err.message);
     });
+
+//routers
+server.use("/api/users", usersRouter);
 
 //to test that server is up and running
 server.get("/", (req, res) => {
