@@ -30,6 +30,10 @@ const userSchema = new Schema({
             required: true
         }
     }],
+    verified: {
+        type: Boolean,
+        default: false,
+    },
     phoneNumber: {
         type: Number,
     },
@@ -78,6 +82,35 @@ userSchema.statics.findByCredentials = async (email, password) => {
     }
     return user
 }
+
+// userSchema.methods.sendAuthyToken = (cb) => {
+//     const user = this;
+
+//     if (!user.authyId) {
+//         // Register this user if it's a new user
+//         authy.register_user(user,
+//             function (err, response) {
+//                 if (err || !response.user) return cb.call(user, err);
+//                 user.authyId = response.user.id;
+//                 user.save(function (err, doc) {
+//                     if (err || !doc) return cb.call(user, err);
+//                     user = doc;
+//                     sendToken();
+//                 });
+//             });
+//     } else {
+//         // Otherwise send token to a known user
+//         sendToken();
+//     }
+
+//     // With a valid Authy ID, send the 2FA token for this user
+//     function sendToken() {
+//         authy.request_sms(user.authyId, true, function (err, response) {
+//             cb.call(user, err);
+//         });
+//     }
+// };
+
 
 const User = mongoose.model('User', userSchema)
 
