@@ -1,0 +1,31 @@
+{
+  "name": "user-management-system",
+  "version": "1.0.0",
+  "description": "A.\tUser Registration - (firstname, lastname, email,password(hashed), phoneNumber, address, company, website, dob ) --- with validation and email activation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ejiro-Edwin/User-management-Stystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ejiro-Edwin/User-management-Stystem/issues"
+  },
+  "homepage": "https://github.com/Ejiro-Edwin/User-management-Stystem#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.10"
+  },
+  "devDependencies": {}
+}
